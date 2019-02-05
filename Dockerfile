@@ -1,4 +1,4 @@
-FROM node:9-alpine as builder
+FROM node:10-alpine as builder
 
 # Create the working dir and copy app files
 RUN mkdir -p /var/www && mkdir /cache
