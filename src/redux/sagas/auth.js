@@ -13,6 +13,8 @@ const removeJwtFromLocalStorage = () => {
 
 const loginPathRegexp = /\/(token-)?login/
 function * loginSuccess ({ user, accessToken, discourseSSOTempToken }) {
+  yield superagent.get(`${url}/set-cookie`).set('Authorization', `Bearer ${accessToken}`)
+
   if (discourseSSOTempToken) {
     const { body: { path } } = yield superagent.post(`${url}/discourse/redirect`).set('Authorization', `Bearer ${accessToken}`).send({ discourseSSOTempToken })
 
