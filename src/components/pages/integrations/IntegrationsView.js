@@ -18,7 +18,12 @@ class IntegrationsView extends Component {
                 meta='Bioinformatics that Inspire'
                 description='Other solutions bring you the haystack; we lead you to the needle in the haystack.'
                 extra={<Link to='/integrations/advaita' className='ui button primary'>Actions</Link>}
-                />
+              />
+              <Card
+                header={<a target='_blank' rel='noopener noreferrer' href='https://advaitabio.com/'>Data Availability Report</a>}
+                description='Generates a report of available data and creates a discussion post.'
+                extra={<Link to='/integrations/data-reporting' className='ui button primary'>Actions</Link>}
+              />
             </Segment>
           </div>
         }

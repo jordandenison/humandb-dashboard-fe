@@ -11,6 +11,7 @@ class FhirView extends Component {
           ? <span>Loading status...<Icon name='spinner' loading /></span>
           : <div className='statusContainer'>
             <iframe
+              title='1up'
               style={{ border: '0px solid #fff' }}
               src={`https://api.1up.health/connect/marketplace?client_id=${currentUser.oneUpClientId}&access_token=${currentUser.oneUpAccessToken}`}
               height='500'

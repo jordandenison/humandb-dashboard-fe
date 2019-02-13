@@ -10,6 +10,7 @@ import CreateUser from 'components/pages/users/create/CreateUser'
 import Status from 'components/pages/status/Status'
 import Integrations from 'components/pages/integrations/Integrations'
 import AdvaitaIntegration from 'components/pages/integrations/advaita/AdvaitaIntegration'
+import DataReportingIntegration from 'components/pages/integrations/data-reporting/DataReportingIntegration'
 import Fhir from 'components/pages/fhir/Fhir'
 
 const ownerAndAdminRegexp = /(admin|owner)/
@@ -29,6 +30,7 @@ class Routes extends Component {
           { ownerAndAdminRegexp.test(role) && <Route exact path='/status' component={Status} /> }
           { ownerAndAdminRegexp.test(role) && <Route exact path='/integrations' component={Integrations} /> }
           { ownerAndAdminRegexp.test(role) && <Route exact path='/integrations/advaita' component={AdvaitaIntegration} /> }
+          { ownerAndAdminRegexp.test(role) && <Route exact path='/integrations/data-reporting' component={DataReportingIntegration} /> }
           { ownerAndAdminRegexp.test(role) && <Route exact path='/load-your-data' component={Fhir} /> }
         </EnsureLoggedIn>
       </Switch>
