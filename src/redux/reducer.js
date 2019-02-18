@@ -8,6 +8,7 @@ import currentUser from 'redux/reducers/currentUser'
 import page from './reducers/page'
 import sort from './reducers/sort'
 import search from './reducers/search'
+import http from './reducers/http'
 
 const reducers = {
   auth: feathersAuthentication.reducer,
@@ -15,6 +16,7 @@ const reducers = {
   page,
   sort,
   search,
+  http,
   user: services.user.reducer,
   statuses: services.status.reducer,
   form: formReducer,

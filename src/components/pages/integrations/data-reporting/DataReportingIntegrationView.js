@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 class DataReportingIntegrationView extends Component {
   render () {
-    const { loaded = true, generateReport } = this.props
+    const { loaded = true, processing, generateReport, error } = this.props
 
     return (
       <div className='usersComponent'>
@@ -14,8 +14,9 @@ class DataReportingIntegrationView extends Component {
             <Segment>
               <Header as='h2'>Data Reporting Actions</Header>
               <br />
-              <Button onClick={generateReport}>Generate Report</Button>
+              <Button disabled={processing} onClick={generateReport}>{ processing ? 'Generating Report...' : 'Generate Report'}</Button>
               <br />
+              { error && <div><span style={{ color: 'red' }}>Error: {error}</span></div> }
               <br />
               <Link to='/integrations' className='ui button secondary'>Back to Integrations</Link>
             </Segment>
