@@ -6,13 +6,13 @@ const DropdownItem = Dropdown.Item
 
 const profileSrc = '/images/icons/defaultProfile.svg'
 
-const integrationsRegexp = /^\/integrations/
+const appsRegexp = /^\/apps/
 const statusRegexp = /^\/status/
 const usersRegexp = /^\/users/
 
 const getPageDescription = path => {
-  if (integrationsRegexp.test(path)) return 'A list of currently available integrations'
-  if (statusRegexp.test(path)) return 'Shows the current status of connection integrations'
+  if (appsRegexp.test(path)) return 'A list of currently available apps'
+  if (statusRegexp.test(path)) return 'Shows the current status of connected apps'
   if (usersRegexp.test(path)) return 'Add users that can login to this dashboard by their Google account e-mail address'
 
   return ''

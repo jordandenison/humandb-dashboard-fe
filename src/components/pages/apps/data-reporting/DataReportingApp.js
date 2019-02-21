@@ -3,7 +3,7 @@ import { push } from 'react-router-redux'
 import superagent from 'superagent'
 
 import { url } from 'lib/feathers/feathersClient'
-import DataReportingIntegrationView from './DataReportingIntegrationView'
+import DataReportingAppView from './DataReportingAppView'
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser,
@@ -28,4 +28,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DataReportingIntegrationView)
+export default connect(mapStateToProps, mapDispatchToProps)(DataReportingAppView)

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Card, Icon, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-class IntegrationsView extends Component {
+class AppsView extends Component {
   render () {
     const { loaded = true } = this.props
 
@@ -17,12 +17,12 @@ class IntegrationsView extends Component {
                 header={<a target='_blank' rel='noopener noreferrer' href='https://advaitabio.com/'>Advaitabio</a>}
                 meta='Bioinformatics that Inspire'
                 description='Other solutions bring you the haystack; we lead you to the needle in the haystack.'
-                extra={<Link to='/integrations/advaita' className='ui button primary'>Actions</Link>}
+                extra={<Link to='/apps/advaita' className='ui button primary'>Actions</Link>}
               />
               <Card
                 header={<a target='_blank' rel='noopener noreferrer' href='https://advaitabio.com/'>Data Availability Report</a>}
                 description='Generates a report of available data and creates a discussion post.'
-                extra={<Link to='/integrations/data-reporting' className='ui button primary'>Actions</Link>}
+                extra={<Link to='/apps/data-reporting' className='ui button primary'>Actions</Link>}
               />
             </Segment>
           </div>
@@ -32,4 +32,4 @@ class IntegrationsView extends Component {
   }
 }
 
-export default IntegrationsView
+export default AppsView

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
-import IntegrationsView from './IntegrationsView'
+import AppsView from './AppsView'
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(IntegrationsView)
+export default connect(mapStateToProps, mapDispatchToProps)(AppsView)

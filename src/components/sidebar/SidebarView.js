@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Image } from 'semantic-ui-react'
 import './Sidebar.css'
 
-const integrationsRegexp = /^\/integrations/
+const AppsRegexp = /^\/apps/
 const statusRegexp = /^\/status/
 const usersRegexp = /^\/users/
 const loadYourDataRegexp = /^\/load-your-data/
@@ -22,8 +22,8 @@ class SidebarView extends Component {
             Users
           </Menu.Item>
         }
-        <Menu.Item active={integrationsRegexp.test(router.location.pathname)} onClick={() => routeTo('/integrations')}>
-          Integrations
+        <Menu.Item active={AppsRegexp.test(router.location.pathname)} onClick={() => routeTo('/apps')}>
+          Apps
         </Menu.Item>
         { ownerOrAdminRegexp.test(currentUser.role) &&
           <Menu.Item active={statusRegexp.test(router.location.pathname)} onClick={() => routeTo('/status')}>

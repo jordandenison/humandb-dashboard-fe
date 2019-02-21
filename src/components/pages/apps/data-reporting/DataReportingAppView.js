@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Header, Icon, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-class DataReportingIntegrationView extends Component {
+class DataReportingAppView extends Component {
   render () {
     const { loaded = true, processing, generateReport, error } = this.props
 
@@ -18,7 +18,7 @@ class DataReportingIntegrationView extends Component {
               <br />
               { error && <div><span style={{ color: 'red' }}>Error: {error}</span></div> }
               <br />
-              <Link to='/integrations' className='ui button secondary'>Back to Integrations</Link>
+              <Link to='/apps' className='ui button secondary'>Back to Apps</Link>
             </Segment>
           </div>
         }
@@ -27,4 +27,4 @@ class DataReportingIntegrationView extends Component {
   }
 }
 
-export default DataReportingIntegrationView
+export default DataReportingAppView

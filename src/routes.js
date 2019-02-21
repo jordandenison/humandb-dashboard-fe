@@ -8,9 +8,9 @@ import Login from 'components/pages/login/Login'
 import Users from 'components/pages/users/Users'
 import CreateUser from 'components/pages/users/create/CreateUser'
 import Status from 'components/pages/status/Status'
-import Integrations from 'components/pages/integrations/Integrations'
-import AdvaitaIntegration from 'components/pages/integrations/advaita/AdvaitaIntegration'
-import DataReportingIntegration from 'components/pages/integrations/data-reporting/DataReportingIntegration'
+import Apps from 'components/pages/apps/Apps'
+import AdvaitaApp from 'components/pages/apps/advaita/AdvaitaApp'
+import DataReportingApp from 'components/pages/apps/data-reporting/DataReportingApp'
 import Fhir from 'components/pages/fhir/Fhir'
 
 const ownerAndAdminRegexp = /(admin|owner)/
@@ -28,9 +28,9 @@ class Routes extends Component {
           { ownerAndAdminRegexp.test(role) && <Route exact path='/users' component={Users} /> }
           { ownerAndAdminRegexp.test(role) && <Route exact path='/users/create' component={CreateUser} /> }
           { ownerAndAdminRegexp.test(role) && <Route exact path='/status' component={Status} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/integrations' component={Integrations} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/integrations/advaita' component={AdvaitaIntegration} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/integrations/data-reporting' component={DataReportingIntegration} /> }
+          { ownerAndAdminRegexp.test(role) && <Route exact path='/apps' component={Apps} /> }
+          { ownerAndAdminRegexp.test(role) && <Route exact path='/apps/advaita' component={AdvaitaApp} /> }
+          { ownerAndAdminRegexp.test(role) && <Route exact path='/apps/data-reporting' component={DataReportingApp} /> }
           { ownerAndAdminRegexp.test(role) && <Route exact path='/load-your-data' component={Fhir} /> }
         </EnsureLoggedIn>
       </Switch>

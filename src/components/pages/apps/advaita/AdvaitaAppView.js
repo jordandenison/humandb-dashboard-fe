@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Header, Icon, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-class AdvaitaIntegrationView extends Component {
+class AdvaitaAppView extends Component {
   render () {
     const { loaded = true } = this.props
 
@@ -17,7 +17,7 @@ class AdvaitaIntegrationView extends Component {
               <span>Coming soon...</span>
               <br />
               <br />
-              <Link to='/integrations' className='ui button secondary'>Back to Integrations</Link>
+              <Link to='/apps' className='ui button secondary'>Back to Apps</Link>
             </Segment>
           </div>
         }
@@ -26,4 +26,4 @@ class AdvaitaIntegrationView extends Component {
   }
 }
 
-export default AdvaitaIntegrationView
+export default AdvaitaAppView

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
-import AdvaitaIntegrationView from './AdvaitaIntegrationView'
+import AdvaitaAppView from './AdvaitaAppView'
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdvaitaIntegrationView)
+export default connect(mapStateToProps, mapDispatchToProps)(AdvaitaAppView)
