@@ -5,8 +5,6 @@ import './Sidebar.css'
 const AppsRegexp = /^\/apps/
 const statusRegexp = /^\/status/
 const usersRegexp = /^\/users/
-const loadYourDataRegexp = /^\/load-your-data/
-const ownerOrAdminRegexp = /(owner|admin)/
 
 class SidebarView extends Component {
   render () {
@@ -17,26 +15,23 @@ class SidebarView extends Component {
         <Menu.Item onClick={() => routeTo('/')}>
           <Image src='/images/18F-HumanDB-LogoR1-02.svg' />
         </Menu.Item>
-        { ownerOrAdminRegexp.test(currentUser.role) &&
-          <Menu.Item active={usersRegexp.test(router.location.pathname)} onClick={() => routeTo('/users')}>
-            Users
-          </Menu.Item>
-        }
+        <Menu.Item active={usersRegexp.test(router.location.pathname)} onClick={() => routeTo('/users')}>
+          Users
+        </Menu.Item>
         <Menu.Item active={AppsRegexp.test(router.location.pathname)} onClick={() => routeTo('/apps')}>
           Apps
         </Menu.Item>
-        { ownerOrAdminRegexp.test(currentUser.role) &&
-          <Menu.Item active={statusRegexp.test(router.location.pathname)} onClick={() => routeTo('/status')}>
-            Status
-          </Menu.Item>
-        }
-        { currentUser.role === 'owner' &&
-          <Menu.Item active={loadYourDataRegexp.test(router.location.pathname)} onClick={() => routeTo('/load-your-data')}>
-            Load Your Data
-          </Menu.Item>
-        }
+        <Menu.Item active={statusRegexp.test(router.location.pathname)} onClick={() => routeTo('/status')}>
+          Status
+        </Menu.Item>
         <Menu.Item onClick={() => window.location.replace(`https://${window.location.hostname}/discussion/`)}>
           Discussion
+        </Menu.Item>
+        <Menu.Item disabled>
+          Curematch Report Panel
+        </Menu.Item>
+        <Menu.Item disabled>
+          Appstore
         </Menu.Item>
       </Menu>
     ) : ''
