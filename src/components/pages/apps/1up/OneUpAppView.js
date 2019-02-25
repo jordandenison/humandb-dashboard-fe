@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Icon } from 'semantic-ui-react'
 
-class FhirView extends Component {
+class OneUpAppView extends Component {
   render () {
     const { currentUser, loaded = true } = this.props
 
@@ -9,7 +9,7 @@ class FhirView extends Component {
       <div className='usersComponent'>
         {!loaded
           ? <span>Loading status...<Icon name='spinner' loading /></span>
-          : <div className='statusContainer'>
+          : <div className='1upAppContainer'>
             <iframe
               title='1up'
               style={{ border: '0px solid #fff' }}
@@ -23,4 +23,4 @@ class FhirView extends Component {
   }
 }
 
-export default FhirView
+export default OneUpAppView

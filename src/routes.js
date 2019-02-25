@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import store from 'redux/store'
 import { Route, Switch } from 'react-router-dom'
 
 import EnsureLoggedIn from 'components/auth/EnsureLoggedIn'
@@ -11,27 +10,25 @@ import Status from 'components/pages/status/Status'
 import Apps from 'components/pages/apps/Apps'
 import AdvaitaApp from 'components/pages/apps/advaita/AdvaitaApp'
 import DataReportingApp from 'components/pages/apps/data-reporting/DataReportingApp'
-import Fhir from 'components/pages/fhir/Fhir'
-
-const ownerAndAdminRegexp = /(admin|owner)/
+import FhirDataToolApp from 'components/pages/apps/fhir-data-tool/FhirDataToolApp'
+import OneUpApp from 'components/pages/apps/1up/OneUpApp'
 
 class Routes extends Component {
   render () {
-    const { role } = store.getState().currentUser
-
     return (
       <Switch>
         <Route exact path='/login' component={Login} />
         <EnsureLoggedIn>
           <Route exact path='/' component={Home} />
 
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/users' component={Users} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/users/create' component={CreateUser} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/status' component={Status} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/apps' component={Apps} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/apps/advaita' component={AdvaitaApp} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/apps/data-reporting' component={DataReportingApp} /> }
-          { ownerAndAdminRegexp.test(role) && <Route exact path='/load-your-data' component={Fhir} /> }
+          <Route exact path='/users' component={Users} />
+          <Route exact path='/users/create' component={CreateUser} />
+          <Route exact path='/status' component={Status} />
+          <Route exact path='/apps' component={Apps} />
+          <Route exact path='/apps/advaita' component={AdvaitaApp} />
+          <Route exact path='/apps/data-reporting' component={DataReportingApp} />
+          <Route exact path='/apps/fhir-data-tool' component={FhirDataToolApp} />
+          <Route exact path='/apps/1up' component={OneUpApp} />
         </EnsureLoggedIn>
       </Switch>
     )

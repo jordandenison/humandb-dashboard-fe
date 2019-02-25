@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
-import FhirView from './FhirView'
+import OneUpAppView from './OneUpAppView'
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FhirView)
+export default connect(mapStateToProps, mapDispatchToProps)(OneUpAppView)
