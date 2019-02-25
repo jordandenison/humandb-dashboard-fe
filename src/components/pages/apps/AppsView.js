@@ -17,7 +17,7 @@ class AppsView extends Component {
                   image='/images/ADVAITA-Logo-NewTag220.png'
                   header={<a target='_blank' rel='noopener noreferrer' href='https://advaitabio.com/'>Advaitabio</a>}
                   meta='Bioinformatics that Inspire'
-                  description='iVariantGuide gives you advanced gene variant analysis with a systems biology perspective. Prioritize variants that you want to investigate. Identify rare variants and causal variants. Read linked resources to learn about clinical significance and pathway impact.'
+                  description='iVariantGuide gives you advanced gene variant analysis with a systems biology perspective. See rare and causal variants, significance and pathway impact.'
                   extra={<Link to='/apps/advaita' className='ui button primary'>Actions</Link>}
                 />
                 <Card
