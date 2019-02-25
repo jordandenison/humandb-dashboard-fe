@@ -55,7 +55,7 @@ class UsersView extends Component {
                   {users
                       .map(user => <Table.Row key={user.id}>
                         <Table.Cell>{user.email}</Table.Cell>
-                        <Table.Cell>{user.role}</Table.Cell>
+                        <Table.Cell style={{ textTransform: 'capitalize' }}>{user.role.replace(/internal/, 'bot')}</Table.Cell>
                         <Table.Cell>{users.length > 1 && <Button onClick={() => removeUser(user.id)}>Remove</Button>}</Table.Cell>
                       </Table.Row>)}
                 </Table.Body>

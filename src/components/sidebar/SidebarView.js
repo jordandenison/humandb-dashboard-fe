@@ -28,9 +28,6 @@ class SidebarView extends Component {
           Discussion
         </Menu.Item>
         <Menu.Item disabled>
-          Curematch Report Panel
-        </Menu.Item>
-        <Menu.Item disabled>
           Appstore
         </Menu.Item>
       </Menu>

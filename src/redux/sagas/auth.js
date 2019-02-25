@@ -17,7 +17,7 @@ function * loginSuccess ({ user, accessToken, discourseSSOTempToken }) {
 
   if (discourseSSOTempToken) {
     const { body: { path } } = yield superagent.post(`${url}/discourse/redirect`).set('Authorization', `Bearer ${accessToken}`).send({ discourseSSOTempToken })
-
+console.log('path ', path)
     window.localStorage && window.localStorage.removeItem && window.localStorage.removeItem('discourseSSOTempToken')
 
     window.location.replace(path)

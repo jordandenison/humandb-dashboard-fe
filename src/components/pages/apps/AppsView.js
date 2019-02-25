@@ -17,14 +17,14 @@ class AppsView extends Component {
                   image='/images/ADVAITA-Logo-NewTag220.png'
                   header={<a target='_blank' rel='noopener noreferrer' href='https://advaitabio.com/'>Advaitabio</a>}
                   meta='Bioinformatics that Inspire'
-                  description='Other solutions bring you the haystack; we lead you to the needle in the haystack.'
+                  description='iVariantGuide gives you advanced gene variant analysis with a systems biology perspective. Prioritize variants that you want to investigate. Identify rare variants and causal variants. Read linked resources to learn about clinical significance and pathway impact.'
                   extra={<Link to='/apps/advaita' className='ui button primary'>Actions</Link>}
                 />
                 <Card
                   image='/images/1upHealthLogo.png'
                   header={<a target='_blank' rel='noopener noreferrer' href='https://1up.health/'>1upHealth</a>}
-                  meta='FHIR data aggregation'
-                  description='1upHealth provides 100s of medical application companies and health systems with the tools they need to create easy and accessible experiences for their users.'
+                  meta='Retrieve data from your health care providers'
+                  description='Retrieve data from the EMR systems and patient portals at more than 200 health care providers that support FHIR access'
                   extra={<Link to='/apps/1up' className='ui button primary'>Actions</Link>}
                 />
                 <Card
