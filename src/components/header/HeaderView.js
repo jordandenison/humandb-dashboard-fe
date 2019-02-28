@@ -13,7 +13,7 @@ const usersRegexp = /^\/users/
 const getPageDescription = path => {
   if (appsRegexp.test(path)) return 'Installed apps'
   if (statusRegexp.test(path)) return 'Shows the current status of connected apps'
-  if (usersRegexp.test(path)) return 'Add users that can login to this dashboard by their Google account e-mail address'
+  if (usersRegexp.test(path)) return 'Users that can login to this HumanDB'
 
   return ''
 }
@@ -32,7 +32,7 @@ class HeaderView extends Component {
             <span style={{ color: 'black' }}>{ getPageDescription(path) }</span>
           </Menu.Menu>
           <Menu.Menu position='right'>
-            <Menu.Item>{currentUser.walletAccountName}</Menu.Item>
+            <Menu.Item>Owner: demo@humandb.ai</Menu.Item>
             <Dropdown name='settings' pointing trigger={menuTrigger} icon={null}>
               <Dropdown.Menu className='headerDropdownMenu'>
                 <DropdownItem key='profile' onClick={() => routeTo('/profile')}>Profile</DropdownItem>

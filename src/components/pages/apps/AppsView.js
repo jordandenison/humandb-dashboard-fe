@@ -35,7 +35,7 @@ class AppsView extends Component {
                 <Card
                   header='FHIR Data Browser'
                   description='Explore your current FHIR data'
-                  extra={<a className='ui button primary' target='_blank' rel='noopener noreferrer' href='/auth/fhir-stu2-ui/stu2'>Explore</a>}
+                  extra={<div><a className='ui button primary' target='_blank' rel='noopener noreferrer' href='/auth/fhir-stu2-ui/stu2'>Explore STU2 Data</a><br /><br /><a className='ui button primary' target='_blank' rel='noopener noreferrer' href='/auth/fhir-stu3-ui/stu3'>Explore STU3 Data</a></div>}
                 />
                 <Card
                   header='FHIR Data JSON Export/Import Tool'
