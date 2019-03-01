@@ -24,7 +24,7 @@ class SidebarView extends Component {
         <Menu.Item active={statusRegexp.test(router.location.pathname)} onClick={() => routeTo('/status')}>
           Status
         </Menu.Item>
-        <Menu.Item onClick={() => window.location.replace(`https://${window.location.hostname}/discussion/`)}>
+        <Menu.Item target='_blank' rel='noopener noreferrer' href={`https://${window.location.hostname}/discussion/`} onClick={() => {}}>
           Discussion
         </Menu.Item>
         <Menu.Item disabled>
