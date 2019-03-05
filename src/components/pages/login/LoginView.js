@@ -5,7 +5,7 @@ import { url } from 'lib/feathers/feathersClient'
 class LoginView extends Component {
   render () {
     const { loading, loaded } = this.props
-    console.log('url ', url)
+
     return (
       <div style={{ backgroundColor: '#FFFFFF', position: 'absolute', top: '0', left: '0', zIndex: '1000', width: '100%', height: '100%' }}>
         <Image src='/images/18F-HumanDB-LogoR1-02.svg' size='medium' style={{ margin: '200px auto 0 auto' }} />

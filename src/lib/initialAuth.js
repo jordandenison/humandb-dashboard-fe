@@ -1,5 +1,8 @@
 import feathersAuthentication from 'lib/feathers/feathersAuthentication'
 import { push } from 'react-router-redux'
+import superagent from 'superagent'
+
+import { url } from 'lib/feathers/feathersClient'
 
 const getParameterByName = (name, url) => {
   if (!url) url = window.location.href
@@ -20,6 +23,27 @@ if (discourseSSOTempTokenInit) {
 
 const accessToken = queryStringAccessToken || (window.localStorage && window.localStorage.getItem && window.localStorage.getItem('feathers-jwt'))
 
+const processLogin = async (store, options) => {
+  try {
+    const results = await store.dispatch(feathersAuthentication.authenticate(options))
+
+    const discourseSSOTempToken = window.localStorage && window.localStorage.getItem && window.localStorage.getItem('discourseSSOTempToken')
+
+    const action = {
+      type: 'LOGIN_SUCCESS',
+      user: results.value.user,
+      accessToken: results.value.accessToken
+    }
+
+    if (discourseSSOTempToken) { action.discourseSSOTempToken = discourseSSOTempToken }
+
+    store.dispatch(action)
+  } catch (e) {
+    console.log(`Token login error: ${e.message}`)
+    store.dispatch(push('/login'))
+  }
+}
+
 const init = async store => {
   if (accessToken) {
     const authenticationOptions = {
@@ -27,24 +51,16 @@ const init = async store => {
       accessToken
     }
 
-    try {
-      const results = await store.dispatch(feathersAuthentication.authenticate(authenticationOptions))
+    return processLogin(store, authenticationOptions)
+  } else if (window.location.pathname === '/dev-login') {
+    const { body: { accessToken } } = await superagent.get(`${url}/dev-login`)
 
-      const discourseSSOTempToken = window.localStorage && window.localStorage.getItem && window.localStorage.getItem('discourseSSOTempToken')
-
-      const action = {
-        type: 'LOGIN_SUCCESS',
-        user: results.value.user,
-        accessToken: results.value.accessToken
-      }
-
-      if (discourseSSOTempToken) { action.discourseSSOTempToken = discourseSSOTempToken }
-
-      store.dispatch(action)
-    } catch (e) {
-      console.log(`Token login error: ${e.message}`)
-      store.dispatch(push('/login'))
+    const localDevAuthenticationOptions = {
+      strategy: 'jwt',
+      accessToken
     }
+
+    return processLogin(store, localDevAuthenticationOptions)
   } else {
     return Promise.resolve()
   }

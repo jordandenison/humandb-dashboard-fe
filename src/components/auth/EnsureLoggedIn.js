@@ -6,7 +6,15 @@ class EnsureLoggedIn extends Component {
   render () {
     const { isLoggedIn, children } = this.props
 
-    return isLoggedIn ? <div>{children}</div> : <Redirect to='/login' />
+    if (window.location.pathname === '/dev-login') {
+      return <div />
+    }
+
+    if (isLoggedIn) {
+      return <div>{children}</div>
+    }
+
+    return <Redirect to='/login' />
   }
 }
 
