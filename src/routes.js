@@ -12,6 +12,7 @@ import AdvaitaApp from 'components/pages/apps/advaita/AdvaitaApp'
 import DataReportingApp from 'components/pages/apps/data-reporting/DataReportingApp'
 import FhirDataToolApp from 'components/pages/apps/fhir-data-tool/FhirDataToolApp'
 import OneUpApp from 'components/pages/apps/1up/OneUpApp'
+import FilesApp from 'components/pages/apps/files/FilesApp'
 
 class Routes extends Component {
   render () {
@@ -29,6 +30,7 @@ class Routes extends Component {
           <Route exact path='/apps/data-reporting' component={DataReportingApp} />
           <Route exact path='/apps/fhir-data-tool' component={FhirDataToolApp} />
           <Route exact path='/apps/1up' component={OneUpApp} />
+          <Route exact path='/apps/files' component={FilesApp} />
         </EnsureLoggedIn>
       </Switch>
     )

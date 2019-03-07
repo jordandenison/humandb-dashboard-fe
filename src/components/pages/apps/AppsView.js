@@ -38,9 +38,9 @@ class AppsView extends Component {
                   extra={<div><a className='ui button primary' target='_blank' rel='noopener noreferrer' href='/auth/fhir-stu2-ui/stu2'>Explore STU2 Data</a><br /><br /><a className='ui button primary' target='_blank' rel='noopener noreferrer' href='/auth/fhir-stu3-ui/stu3'>Explore STU3 Data</a></div>}
                 />
                 <Card
-                  header='FHIR Data JSON Export/Import Tool'
-                  description='Exports FHIR data as JSON or imports JSON FHIR data that has been exported from this tool'
-                  extra={<Link to='/apps/fhir-data-tool' className='ui button primary'>Actions</Link>}
+                  header='Filebrowser'
+                  description='Browse files on the shared filesystem'
+                  extra={<Link to='/apps/files' className='ui button primary'>Actions</Link>}
                 />
               </Card.Group>
             </Segment>
