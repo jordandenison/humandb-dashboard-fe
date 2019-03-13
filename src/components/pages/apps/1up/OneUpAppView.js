@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import { Icon } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 
 class OneUpAppView extends Component {
   render () {
-    const { currentUser, loaded = true } = this.props
+    const { currentUser, processing, syncData, loaded = true } = this.props
 
     return (
       <div className='usersComponent'>
         {!loaded
           ? <span>Loading status...<Icon name='spinner' loading /></span>
-          : <div className='1upAppContainer'>
+          : <div className='1upAppContainer' style={{ textAlign: 'center' }}>
+            <Button disabled={processing} onClick={syncData}>{ processing ? 'Syncing Data...' : 'Sync Data'}</Button>
+            <br />
             <iframe
               title='1up'
               style={{ border: '0px solid #fff' }}
