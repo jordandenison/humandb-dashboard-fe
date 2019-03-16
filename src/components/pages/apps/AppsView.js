@@ -25,7 +25,7 @@ class AppsView extends Component {
                   header={<a target='_blank' rel='noopener noreferrer' href='https://1up.health/'>1upHealth</a>}
                   meta='Retrieve data from your health care providers'
                   description='Retrieve data from the EMR systems and patient portals at more than 200 health care providers that support FHIR access'
-                  extra={<Link to='/apps/1up' className='ui button primary'>Actions</Link>}
+                  extra={<Link to='/apps/1up' className='ui button primary'>Get data</Link>}
                 />
                 <Card
                   header='Data Availability Report'
@@ -40,7 +40,7 @@ class AppsView extends Component {
                 <Card
                   header='Filebrowser'
                   description='Browse files on the shared filesystem'
-                  extra={<Link to='/apps/files' className='ui button primary'>Actions</Link>}
+                  extra={<Link to='/apps/files' className='ui button primary'>View Files</Link>}
                 />
               </Card.Group>
             </Segment>
