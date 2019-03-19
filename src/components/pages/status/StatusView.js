@@ -26,11 +26,11 @@ class StatusView extends Component {
                       <Card.Description>{status.description}</Card.Description>
                     </Card.Content>
                     <Card.Content extra>
-                      <span style={{ color: status.status === 'Available' ? 'green' : 'red' }}>{status.status}</span>
+                      <span style={{ color: /(available|complete)/i.test(status.status) ? 'green' : /(in progress)/i.test(status.status) ? 'orange' : 'red' }}>{status.status}</span>
 
-                      {status.error &&
-                      <div style={{ marginTop: '10px', color: 'red' }}>Error: {status.error}</div>
-                        }
+                      { status.error &&
+                        <div style={{ marginTop: '10px', color: 'red' }}>Error: {status.error}</div>
+                      }
                     </Card.Content>
                   </Card>
                 )
@@ -38,7 +38,7 @@ class StatusView extends Component {
               }
             </Card.Group>
           </div>
-          : <Segment>No containers have been added yet.</Segment>
+          : <Segment>There are no status updates yet.</Segment>
         }
       </div>
     )
