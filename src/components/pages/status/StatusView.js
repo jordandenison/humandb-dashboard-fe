@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Card, Icon, Image, Segment } from 'semantic-ui-react'
+import { Card, Icon, Segment } from 'semantic-ui-react'
+import moment from 'moment'
 
 class StatusView extends Component {
   componentDidMount () {
@@ -20,10 +21,13 @@ class StatusView extends Component {
                 return (
                   <Card key={`${status.id}${status.service}${status.dependency}`}>
                     <Card.Content>
-                      <Image floated='right' size='mini' src='/images/avatar/large/steve.jpg' />
                       <Card.Header>{status.service}</Card.Header>
                       <Card.Meta>{status.dependency}</Card.Meta>
-                      <Card.Description>{status.description}</Card.Description>
+                      <Card.Description>
+                        {moment(status.updatedAt).format('MM/DD/YYYY, h:mm:ss a')}
+                        <br />
+                        {status.description}
+                      </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
                       <span style={{ color: /(available|complete)/i.test(status.status) ? 'green' : /(in progress)/i.test(status.status) ? 'orange' : 'red' }}>{status.status}</span>
