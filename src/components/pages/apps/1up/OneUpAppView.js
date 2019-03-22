@@ -22,7 +22,7 @@ class OneUpAppView extends Component {
               width='100%' />
             <br />
             <br />
-            { processing && <p style={{ color: 'black' }}>Check the <Link to='/status/'>status page</Link> for sync progress.</p> }
+            { processing && <p style={{ color: 'black' }}>Check the <Link to='/status/'>status page</Link> for sync progress. Syncing may take several minutes to complete.</p> }
             <Button disabled={processing} onClick={syncData}>{ processing ? 'Syncing Data...' : 'Sync Data'}</Button>
           </div>
         }
