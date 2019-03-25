@@ -18,7 +18,7 @@ const reducers = {
   search,
   http,
   user: services.user.reducer,
-  statuses: services.status.reducer,
+  status: services.status.reducer,
   form: formReducer,
   router: routerReducer
 }

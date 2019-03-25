@@ -5,8 +5,8 @@ import StatusView from './StatusView'
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser,
-  statuses: state.statuses.queryResult ? state.statuses.queryResult.data : [],
-  loaded: state.statuses.isFinished
+  statuses: state.status.queryResult ? state.status.queryResult.data : [],
+  loaded: state.status.isFinished
 })
 
 const mapDispatchToProps = dispatch => {
