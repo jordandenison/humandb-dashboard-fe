@@ -41,7 +41,7 @@ function * logout () {
   removeJwtFromLocalStorage()
   put(feathersauthentication.logout())
 
-  window.location.replace('/')
+  window.location.replace(`https://login.humandb.ai/?logout=true?loginLink=https://${window.location.hostname}`)
 }
 
 export default function * watchAuth () {
