@@ -1,21 +1,13 @@
-import feathersAuthentication from 'lib/feathers/feathersAuthentication'
 import { push } from 'react-router-redux'
 import superagent from 'superagent'
 
+import feathersAuthentication from 'lib/feathers/feathersAuthentication'
 import { url } from 'lib/feathers/feathersClient'
 
-const getParameterByName = (name, url) => {
-  if (!url) url = window.location.href
-  name = name.replace(/[[\]]/g, '\\$&')
-  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)')
-  const results = regex.exec(url)
-  if (!results) return null
-  if (!results[2]) return ''
-  return decodeURIComponent(results[2].replace(/\+/g, ' '))
-}
-
-const queryStringAccessToken = getParameterByName('accessToken')
-const discourseSSOTempTokenInit = getParameterByName('discourseSSOTempToken')
+const urlParams = new URLSearchParams(window.location.search)
+const queryStringAccessToken = urlParams.get('accessToken')
+const queryStringSSOAccessToken = urlParams.get('SSOtoken')
+const discourseSSOTempTokenInit = urlParams.get('discourseSSOTempToken')
 
 if (discourseSSOTempTokenInit) {
   window.localStorage && window.localStorage.getItem && window.localStorage.setItem('discourseSSOTempToken', discourseSSOTempTokenInit)
@@ -23,9 +15,14 @@ if (discourseSSOTempTokenInit) {
 
 const accessToken = queryStringAccessToken || (window.localStorage && window.localStorage.getItem && window.localStorage.getItem('feathers-jwt'))
 
-const processLogin = async (store, options) => {
+const processLogin = async (store, accessToken) => {
+  const authenticationOptions = {
+    strategy: 'jwt',
+    accessToken
+  }
+
   try {
-    const results = await store.dispatch(feathersAuthentication.authenticate(options))
+    const results = await store.dispatch(feathersAuthentication.authenticate(authenticationOptions))
 
     const discourseSSOTempToken = window.localStorage && window.localStorage.getItem && window.localStorage.getItem('discourseSSOTempToken')
 
@@ -46,21 +43,15 @@ const processLogin = async (store, options) => {
 
 const init = async store => {
   if (accessToken) {
-    const authenticationOptions = {
-      strategy: 'jwt',
-      accessToken
-    }
-
-    return processLogin(store, authenticationOptions)
+    return processLogin(store, accessToken)
   } else if (window.location.pathname === '/dev-login') {
     const { body: { accessToken } } = await superagent.get(`${url}/dev-login`)
 
-    const localDevAuthenticationOptions = {
-      strategy: 'jwt',
-      accessToken
-    }
+    return processLogin(store, accessToken)
+  } else if (queryStringSSOAccessToken) {
+    const { body: { localAccessToken } } = await superagent.post(`${url}/sso-login`).send({ accessToken: queryStringSSOAccessToken })
 
-    return processLogin(store, localDevAuthenticationOptions)
+    return processLogin(store, localAccessToken)
   } else {
     return Promise.resolve()
   }
