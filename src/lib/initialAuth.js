@@ -1,4 +1,3 @@
-import { push } from 'react-router-redux'
 import superagent from 'superagent'
 
 import feathersAuthentication from 'lib/feathers/feathersAuthentication'
@@ -14,6 +13,8 @@ if (discourseSSOTempTokenInit) {
 }
 
 const accessToken = queryStringAccessToken || (window.localStorage && window.localStorage.getItem && window.localStorage.getItem('feathers-jwt'))
+
+const redirectToSSOlogin = () => window.location.replace(`https://login.humandb.ai/?redirectUrl=https://${window.location.hostname}/`)
 
 const processLogin = async (store, accessToken) => {
   const authenticationOptions = {
@@ -37,7 +38,7 @@ const processLogin = async (store, accessToken) => {
     store.dispatch(action)
   } catch (e) {
     console.log(`Token login error: ${e.message}`)
-    store.dispatch(push('/login'))
+    return redirectToSSOlogin()
   }
 }
 
@@ -53,7 +54,7 @@ const init = async store => {
 
     return processLogin(store, localAccessToken)
   } else {
-    return Promise.resolve()
+    return redirectToSSOlogin()
   }
 }
 

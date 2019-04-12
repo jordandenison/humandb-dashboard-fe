@@ -15,13 +15,16 @@ const loginPathRegexp = /\/(token-)?login/
 function * loginSuccess ({ user, accessToken, discourseSSOTempToken }) {
   yield superagent.get(`${url}/set-cookie`).set('Authorization', `Bearer ${accessToken}`)
 
+  const urlParams = new URLSearchParams(window.location.search)
+  const queryStringSSOAccessToken = urlParams.get('SSOtoken')
+
   if (discourseSSOTempToken) {
     const { body: { path } } = yield superagent.post(`${url}/discourse/redirect`).set('Authorization', `Bearer ${accessToken}`).send({ discourseSSOTempToken })
 
     window.localStorage && window.localStorage.removeItem && window.localStorage.removeItem('discourseSSOTempToken')
 
     window.location.replace(path)
-  } else if (loginPathRegexp.test(window.location.pathname)) {
+  } else if (loginPathRegexp.test(window.location.pathname) || queryStringSSOAccessToken) {
     yield put(push('/'))
   }
 }
@@ -38,7 +41,7 @@ function * logout () {
   removeJwtFromLocalStorage()
   put(feathersauthentication.logout())
 
-  window.location.replace('/login')
+  window.location.replace('/')
 }
 
 export default function * watchAuth () {
