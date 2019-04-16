@@ -43,11 +43,11 @@ const processLogin = async (store, accessToken) => {
 }
 
 const init = async store => {
-  if (accessToken) {
-    return processLogin(store, accessToken)
-  } else if (window.location.pathname === '/dev-login') {
+  if (window.location.pathname === '/dev-login') {
     const { body: { accessToken } } = await superagent.get(`${url}/dev-login`)
 
+    return processLogin(store, accessToken)
+  } else if (accessToken) {
     return processLogin(store, accessToken)
   } else if (queryStringSSOAccessToken) {
     const { body: { localAccessToken } } = await superagent.post(`${url}/sso-login`).send({ accessToken: queryStringSSOAccessToken })
