@@ -16,8 +16,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     routeTo: path => dispatch(push(path)),
-    loadUsers: () => dispatch(services.user.find()),
-    removeUser: id => dispatch(services.user.remove(null, { query: { id } })),
+    loadUsers: () => dispatch(services['auth/user'].find()),
+    removeUser: id => dispatch(services['auth/user'].remove(null, { query: { id } })),
     setPage: page => dispatch({ type: 'SET_PAGE', model: 'user', page }),
     setSort: sort => dispatch({ type: 'SET_SORT', model: 'user', sort }),
     setSearch: search => dispatch({ type: 'SET_SEARCH', model: 'user', search })

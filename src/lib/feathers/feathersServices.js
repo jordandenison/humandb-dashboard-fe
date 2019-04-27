@@ -1,6 +1,6 @@
 import reduxifyServices from 'feathers-redux'
 import feathersClient from './feathersClient'
 
-const services = [ 'status', 'user' ]
+const services = [ 'auth/status', 'auth/user' ]
 
 export default reduxifyServices(feathersClient, services)

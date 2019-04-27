@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       try {
         const { email, admin } = userData
 
-        await dispatch(services.user.create({ email, admin }))
+        await dispatch(services['auth/user'].create({ email, admin }))
 
         return ownProps.history.push('/users')
       } catch (e) {

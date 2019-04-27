@@ -33,7 +33,10 @@ const processLogin = async (store, accessToken) => {
       accessToken: results.value.accessToken
     }
 
-    if (discourseSSOTempToken) { action.discourseSSOTempToken = discourseSSOTempToken }
+    if (discourseSSOTempToken) {
+      action.discourseSSOTempToken = discourseSSOTempToken
+      window.localStorage && window.localStorage.removeItem && window.localStorage.removeItem('discourseSSOTempToken')
+    }
 
     store.dispatch(action)
   } catch (e) {

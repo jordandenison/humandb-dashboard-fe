@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     routeTo: path => dispatch(push(path)),
-    get1upSyncStatus: async () => dispatch(services.status.find({ query: { service: '1up', dependency: 'FHIR Data Retrieval' } })),
+    get1upSyncStatus: async () => dispatch(services['auth/status'].find({ query: { service: '1up', dependency: 'FHIR Data Retrieval' } })),
     syncData: async () => {
       try {
         dispatch({ type: 'HTTP_REQUEST_START' })

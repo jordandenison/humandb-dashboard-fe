@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadStatuses: () => dispatch(services.status.find())
+    loadStatuses: () => dispatch(services['auth/status'].find())
   }
 }
 
