@@ -32,7 +32,7 @@ export default {
       }
     })
 
-    client.service('status').on('created', updateStatus)
-    client.service('status').on('patched', updateStatus)
+    client.service('auth/status').on('created', updateStatus)
+    client.service('auth/status').on('patched', updateStatus)
   }
 }
