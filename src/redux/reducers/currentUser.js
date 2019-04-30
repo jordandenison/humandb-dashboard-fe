@@ -1,4 +1,5 @@
 export default (state = {}, action) => {
+  console.log('action type ', action.type)
   switch (action.type) {
     case 'LOGIN':
       return Object.assign({}, { isSaving: true })
@@ -8,7 +9,7 @@ export default (state = {}, action) => {
     case 'SET_CURRENT_USER':
       return Object.assign({}, state, action.user)
 
-    case 'SERVICES_USER_PATCH_FULFILLED':
+    case 'SERVICES_AUTH/USER_PATCH_FULFILLED':
       return Object.assign({}, state, action.payload)
 
     case 'LOGIN_ERROR':

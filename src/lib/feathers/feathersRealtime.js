@@ -17,7 +17,7 @@ const updateStatus = throttle(async () => {
     const payload = await result.payload.promise
 
     store.dispatch({
-      type: 'SERVICES_STATUS_FIND_FULFILLED',
+      type: 'SERVICES_AUTH/STATUS_FIND_FULFILLED',
       payload
     })
   }
