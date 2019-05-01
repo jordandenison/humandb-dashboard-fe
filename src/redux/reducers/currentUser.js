@@ -1,5 +1,4 @@
 export default (state = {}, action) => {
-  console.log('action type ', action.type)
   switch (action.type) {
     case 'LOGIN':
       return Object.assign({}, { isSaving: true })
