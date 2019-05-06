@@ -16,6 +16,8 @@ const accessToken = queryStringAccessToken || (window.localStorage && window.loc
 
 const redirectToSSOlogin = () => window.location.replace(`https://login.humandb.ai/?redirectUrl=https://${window.location.hostname}/`)
 
+const redirectToSSOloginAndLogout = () => window.location.replace(`https://login.humandb.ai/?redirectUrl=https://${window.location.hostname}/&logout=true`)
+
 const processLogin = async (store, accessToken) => {
   const authenticationOptions = {
     strategy: 'jwt',
@@ -41,7 +43,7 @@ const processLogin = async (store, accessToken) => {
     store.dispatch(action)
   } catch (e) {
     console.log(`Token login error: ${e.message}`)
-    return redirectToSSOlogin()
+    return redirectToSSOloginAndLogout()
   }
 }
 
