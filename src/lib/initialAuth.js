@@ -52,12 +52,12 @@ const init = async store => {
     const { body: { accessToken } } = await superagent.get(`${url}/dev-login`)
 
     return processLogin(store, accessToken)
-  } else if (accessToken) {
-    return processLogin(store, accessToken)
   } else if (queryStringSSOAccessToken) {
     const { body: { localAccessToken } } = await superagent.post(`${url}/sso-login`).send({ accessToken: queryStringSSOAccessToken })
 
     return processLogin(store, localAccessToken)
+  } else if (accessToken) {
+    return processLogin(store, accessToken)
   } else {
     return redirectToSSOlogin()
   }
