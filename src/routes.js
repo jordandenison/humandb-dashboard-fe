@@ -12,7 +12,7 @@ import AdvaitaApp from 'components/pages/apps/advaita/AdvaitaApp'
 import DataReportingApp from 'components/pages/apps/data-reporting/DataReportingApp'
 import FhirDataToolApp from 'components/pages/apps/fhir-data-tool/FhirDataToolApp'
 import OneUpApp from 'components/pages/apps/1up/OneUpApp'
-import FilesApp from 'components/pages/apps/files/FilesApp'
+import FilesApp from 'components/pages/files/FilesApp'
 
 class Routes extends Component {
   render () {
