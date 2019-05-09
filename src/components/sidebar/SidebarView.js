@@ -3,6 +3,7 @@ import { Menu, Image } from 'semantic-ui-react'
 import './Sidebar.css'
 
 const AppsRegexp = /^\/apps/
+const dataFilesRegexp = /^\/data-files/
 const statusRegexp = /^\/status/
 const usersRegexp = /^\/users/
 
@@ -13,13 +14,16 @@ class SidebarView extends Component {
     return currentUser.id ? (
       <Menu vertical className='sidebarComponent'>
         <Menu.Item onClick={() => routeTo('/')}>
-          <Image src='/images/18F-HumanDB-LogoR1-02.svg' />
+          <Image size='tiny' src='/images/logo.png' centered />
         </Menu.Item>
         <Menu.Item active={usersRegexp.test(router.location.pathname)} onClick={() => routeTo('/users')}>
           Users
         </Menu.Item>
         <Menu.Item active={AppsRegexp.test(router.location.pathname)} onClick={() => routeTo('/apps')}>
           Apps
+        </Menu.Item>
+        <Menu.Item active={dataFilesRegexp.test(router.location.pathname)} onClick={() => routeTo('/data-files')}>
+          Data Files
         </Menu.Item>
         <Menu.Item active={statusRegexp.test(router.location.pathname)} onClick={() => routeTo('/status')}>
           Status

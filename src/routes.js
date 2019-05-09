@@ -25,12 +25,12 @@ class Routes extends Component {
           <Route exact path='/users' component={Users} />
           <Route exact path='/users/create' component={CreateUser} />
           <Route exact path='/status' component={Status} />
+          <Route exact path='/data-files' component={FilesApp} />
           <Route exact path='/apps' component={Apps} />
           <Route exact path='/apps/advaita' component={AdvaitaApp} />
           <Route exact path='/apps/data-reporting' component={DataReportingApp} />
           <Route exact path='/apps/fhir-data-tool' component={FhirDataToolApp} />
           <Route exact path='/apps/1up' component={OneUpApp} />
-          <Route exact path='/apps/files' component={FilesApp} />
         </EnsureLoggedIn>
       </Switch>
     )
